@@ -1,0 +1,25 @@
+# This project uses Node.js and npm/yarn for package management
+# Please use the package.json file for dependencies
+# Below are the main dependencies for this project:
+
+# Core dependencies
+# - next: ^14.0.4
+# - react: ^18
+# - react-dom: ^18
+# - typescript: ^5
+
+# UI and styling
+# - tailwindcss: ^3.3.0
+# - postcss: ^8
+# - autoprefixer: ^10.0.1
+# - react-icons: ^4.12.0
+# - framer-motion: ^10.16.16
+
+# Functionality
+# - react-dropzone: ^14.2.3
+# - cropperjs: ^1.6.1
+
+# To install all dependencies, run:
+# npm install
+# or
+# yarn install
