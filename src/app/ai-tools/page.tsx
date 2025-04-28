@@ -140,6 +140,7 @@ export default function AIToolsPage() {
                   height={48}
                   sizes="48px"
                   className="object-contain"
+                  unoptimized
                 />
               </div>
               <h2 className="text-lg font-semibold mb-1">{tool.name}</h2>

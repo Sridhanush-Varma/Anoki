@@ -56,6 +56,46 @@ Anoki is a modern web application that provides easy access to a variety of onli
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
+## Deployment to GitHub Pages
+
+This project is configured for easy deployment to GitHub Pages.
+
+### Automatic Deployment (GitHub Actions)
+
+The repository is configured with GitHub Actions to automatically deploy to GitHub Pages when you push to the main branch.
+
+1. Push your changes to the main branch:
+   ```bash
+   git push origin main
+   ```
+
+2. GitHub Actions will automatically build and deploy your site.
+
+### Manual Deployment
+
+You can also deploy manually using the gh-pages package:
+
+1. Build the project:
+   ```bash
+   npm run export
+   # or
+   yarn export
+   ```
+
+2. Deploy to GitHub Pages:
+   ```bash
+   npm run deploy
+   # or
+   yarn deploy
+   ```
+
+### Configuration for Your Repository
+
+To configure the project for your own GitHub Pages:
+
+1. Update the `basePath` and `assetPrefix` in `next.config.js` with your repository name.
+2. Update the GitHub Actions workflow in `.github/workflows/deploy.yml` if needed.
+
 ##  Project Structure
 
 ```

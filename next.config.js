@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export', // Enable static exports for GitHub Pages
+  distDir: 'out', // Output directory for the static build
+  trailingSlash: true, // Add trailing slashes to all routes
   images: {
     domains: [
       'upload.wikimedia.org',
@@ -11,14 +14,17 @@ const nextConfig = {
       'huggingface.co',
       'cdn.worldvectorlogo.com'
     ],
-    unoptimized: true,
+    unoptimized: true, // Required for static export
   },
   // Add transpilePackages to help with compatibility
   transpilePackages: ['react-icons', 'framer-motion'],
   // Disable barrel optimization for react-icons
   experimental: {
     optimizePackageImports: []
-  }
+  },
+  // Set the base path for GitHub Pages (replace 'anoki' with your repository name)
+  basePath: process.env.NODE_ENV === 'production' ? '/anoki' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/anoki/' : '',
 }
 
 module.exports = nextConfig
