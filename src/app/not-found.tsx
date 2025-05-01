@@ -18,9 +18,24 @@ export default function NotFound() {
       const pathParts = path.split('/')
       if (pathParts.length > 1) {
         const repoName = pathParts[1]
+
         // Check if we need to redirect
         if (path.startsWith(`/${repoName}`) && !path.startsWith(`/${repoName}/`)) {
           window.location.href = `/${repoName}/`
+          return
+        }
+
+        // Check if path is missing the base path
+        if (!path.startsWith(`/${repoName}`)) {
+          window.location.href = `/${repoName}${path}`
+          return
+        }
+
+        // Check if this is a static asset path that needs fixing
+        if (path.includes('/next/static/') && !path.includes(`/${repoName}/next/static/`)) {
+          const correctedPath = path.replace('/next/static/', `/${repoName}/next/static/`)
+          window.location.href = correctedPath
+          return
         }
       }
     }

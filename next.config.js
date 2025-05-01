@@ -22,9 +22,9 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: []
   },
-  // Update basePath and assetPrefix configuration
+  // Update basePath and assetPrefix configuration for GitHub Pages
   basePath: process.env.NODE_ENV === 'production' ? '/Encode-25' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://sridhanush-varma.github.io/Encode-25' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Encode-25' : '',
   // Configure webpack to handle static assets
   webpack: (config) => {
     config.module.rules.push({
@@ -34,7 +34,7 @@ const nextConfig = {
         options: {
           limit: 100000,
           name: '[name].[ext]',
-          publicPath: `${process.env.NODE_ENV === 'production' ? 'https://sridhanush-varma.github.io/Encode-25' : ''}/`,
+          publicPath: `${process.env.NODE_ENV === 'production' ? '/Encode-25' : ''}/`,
         },
       },
     });

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - Anoki</title>
+  <script>
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    // This script takes the current URL and converts the path and query
+    // string into just a query string, and then redirects the browser
+    // to the new URL with only a query string and hash fragment.
+    
+    // If you're creating a Project Pages site and NOT using a custom domain,
+    // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
+    var pathSegmentsToKeep = 1;
+
+    var l = window.location;
+    var repoName = 'Encode-25'; // Your repository name
+    
+    // Check if this is a GitHub Pages site
+    if (l.hostname.includes('github.io')) {
+      // Redirect to the correct path with the repository name
+      var newPath = l.pathname.split('/').slice(0, pathSegmentsToKeep + 1).join('/') || '/';
+      
+      // Handle static asset paths
+      if (l.pathname.includes('/next/static/')) {
+        newPath = '/' + repoName + l.pathname;
+      } else if (!l.pathname.startsWith('/' + repoName)) {
+        newPath = '/' + repoName + l.pathname;
+      }
+      
+      l.replace(
+        l.protocol + '//' + l.hostname + newPath + (l.search || '') + (l.hash || '')
+      );
+    }
+  </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+      color: #0f172a;
+    }
+    
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 500px;
+    }
+    
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    p {
+      margin-bottom: 2rem;
+      color: #64748b;
+    }
+    
+    a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #0ea5e9;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    
+    a:hover {
+      background-color: #0284c7;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(to bottom, #0f172a, #1e293b);
+        color: #f8fafc;
+      }
+      
+      p {
+        color: #94a3b8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+    <a href="/Encode-25">Return to Home</a>
+  </div>
+</body>
+</html>
