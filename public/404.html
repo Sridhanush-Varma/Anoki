@@ -11,29 +11,43 @@
     // This script takes the current URL and converts the path and query
     // string into just a query string, and then redirects the browser
     // to the new URL with only a query string and hash fragment.
-    
+
     // If you're creating a Project Pages site and NOT using a custom domain,
     // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
     var pathSegmentsToKeep = 1;
 
     var l = window.location;
     var repoName = 'Encode-25'; // Your repository name
-    
+
     // Check if this is a GitHub Pages site
     if (l.hostname.includes('github.io')) {
-      // Redirect to the correct path with the repository name
-      var newPath = l.pathname.split('/').slice(0, pathSegmentsToKeep + 1).join('/') || '/';
-      
-      // Handle static asset paths
+      // Handle different types of paths
+      var newPath;
+
+      // Case 1: Static asset paths
       if (l.pathname.includes('/next/static/')) {
-        newPath = '/' + repoName + l.pathname;
-      } else if (!l.pathname.startsWith('/' + repoName)) {
+        console.log('Fixing static asset path:', l.pathname);
         newPath = '/' + repoName + l.pathname;
       }
-      
-      l.replace(
-        l.protocol + '//' + l.hostname + newPath + (l.search || '') + (l.hash || '')
-      );
+      // Case 2: Path doesn't start with repo name
+      else if (!l.pathname.startsWith('/' + repoName)) {
+        console.log('Adding repo name to path:', l.pathname);
+        newPath = '/' + repoName + l.pathname;
+      }
+      // Case 3: Path already has repo name but might be missing trailing slash
+      else if (l.pathname === '/' + repoName) {
+        console.log('Adding trailing slash to repo path');
+        newPath = '/' + repoName + '/';
+      }
+      // Case 4: Use existing path
+      else {
+        console.log('Using existing path:', l.pathname);
+        newPath = l.pathname;
+      }
+
+      var newUrl = l.protocol + '//' + l.hostname + newPath + (l.search || '') + (l.hash || '');
+      console.log('Redirecting to:', newUrl);
+      l.replace(newUrl);
     }
   </script>
   <style>
@@ -48,28 +62,28 @@
       background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
       color: #0f172a;
     }
-    
+
     .container {
       text-align: center;
       padding: 2rem;
       max-width: 500px;
     }
-    
+
     h1 {
       font-size: 4rem;
       margin-bottom: 1rem;
     }
-    
+
     h2 {
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
     }
-    
+
     p {
       margin-bottom: 2rem;
       color: #64748b;
     }
-    
+
     a {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -80,17 +94,17 @@
       font-weight: 500;
       transition: background-color 0.2s;
     }
-    
+
     a:hover {
       background-color: #0284c7;
     }
-    
+
     @media (prefers-color-scheme: dark) {
       body {
         background: linear-gradient(to bottom, #0f172a, #1e293b);
         color: #f8fafc;
       }
-      
+
       p {
         color: #94a3b8;
       }
@@ -102,7 +116,7 @@
     <h1>404</h1>
     <h2>Page Not Found</h2>
     <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
-    <a href="/Encode-25">Return to Home</a>
+    <a href="/Encode-25/">Return to Home</a>
   </div>
 </body>
 </html>

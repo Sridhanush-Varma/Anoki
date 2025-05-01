@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && type nul > out/.nojekyll && copy .nojekyll out\\",
+    "build": "next build && echo \"\" > out/.nojekyll",
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out -t true"
+    "deploy": "gh-pages -d out -t true",
+    "deploy:script": "node deploy.js"
   },
   "dependencies": {
     "next": "14.0.4",
