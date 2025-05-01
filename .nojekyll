@@ -1,0 +1,2 @@
+# First create an empty .nojekyll file in your out directory
+echo.> out\.nojekyll
