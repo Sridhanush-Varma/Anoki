@@ -25,6 +25,11 @@ const nextConfig = {
   // Set the base path for GitHub Pages
   basePath: '/Encode-25',
   assetPrefix: '/Encode-25/',
+  // Add this to ensure proper asset loading
+  webpack: (config) => {
+    config.output.publicPath = '/Encode-25/';
+    return config;
+  }
 }
 
 module.exports = nextConfig

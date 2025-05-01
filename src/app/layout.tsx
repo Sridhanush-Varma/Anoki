@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import CommandButton from '@/components/CommandButton'
+import { BASE_PATH } from './constants'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
   title: 'Anoki - Your Ultimate Tools Collection',
   description: 'A one-stop-shop for accessing popular AI tools, file converters, detectors, editors, and enhancers.',
   icons: {
-    icon: '/images/anoki-logo-light.jpg',
-    apple: '/images/anoki-logo-light.jpg',
+    icon: `${BASE_PATH}/images/anoki-logo-light.jpg`,
+    apple: `${BASE_PATH}/images/anoki-logo-light.jpg`,
   },
 }
 
