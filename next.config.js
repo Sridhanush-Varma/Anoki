@@ -22,9 +22,9 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: []
   },
-  // Set the base path for GitHub Pages (replace 'anoki' with your repository name)
-  basePath: process.env.NODE_ENV === 'production' ? '/anoki' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/anoki/' : '',
+  // Set the base path for GitHub Pages
+  basePath: process.env.NODE_ENV === 'production' ? '/Encode-25' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Encode-25/' : '',
 }
 
 module.exports = nextConfig
