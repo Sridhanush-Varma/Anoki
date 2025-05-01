@@ -212,7 +212,7 @@ export default function EnhancersPage() {
                       <div className="bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden">
                         <img 
                           ref={beforeImageRef}
-                          src={preview} 
+                          src={preview || ''} 
                           alt="Before" 
                           className="max-w-full object-contain mx-auto"
                         />
@@ -223,7 +223,7 @@ export default function EnhancersPage() {
                       <div className="bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden">
                         <img 
                           ref={afterImageRef}
-                          src={preview} // In a real app, this would be the enhanced image
+                          src={preview || ''} // In a real app, this would be the enhanced image
                           alt="After" 
                           className="max-w-full object-contain mx-auto"
                         />

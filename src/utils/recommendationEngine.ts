@@ -282,10 +282,10 @@ export const getPersonalizedRecommendations = (limit: number = 4): Tool[] => {
     }
     
     // Get unique tool IDs from history, most recent first
-    const uniqueToolIds = Array.from(new Set(history.map((item: any) => item.toolId)));
+    const uniqueToolIds: string[] = Array.from(new Set(history.map((item: any) => item.toolId)));
     
     // Get related tools for each tool in history
-    const recommendations = uniqueToolIds.flatMap(toolId => 
+    const recommendations = uniqueToolIds.flatMap((toolId: string) => 
       getRelatedTools(toolId, Math.ceil(limit / Math.min(uniqueToolIds.length, 3)))
     );
     
