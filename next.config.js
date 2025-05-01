@@ -22,12 +22,22 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: []
   },
-  // Set the base path for GitHub Pages
-  basePath: '/Encode-25',
-  assetPrefix: '/Encode-25/',
-  // Add this to ensure proper asset loading
+  // Update basePath and assetPrefix configuration
+  basePath: process.env.NODE_ENV === 'production' ? '/Encode-25' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://sridhanush-varma.github.io/Encode-25' : '',
+  // Configure webpack to handle static assets
   webpack: (config) => {
-    config.output.publicPath = '/Encode-25/';
+    config.module.rules.push({
+      test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 100000,
+          name: '[name].[ext]',
+          publicPath: `${process.env.NODE_ENV === 'production' ? 'https://sridhanush-varma.github.io/Encode-25' : ''}/`,
+        },
+      },
+    });
     return config;
   }
 }

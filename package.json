@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build && echo.> out/.nojekyll",
+    "predeploy": "npm run build && type nul > out/.nojekyll",
     "deploy": "gh-pages -d out -t true"
   },
   "dependencies": {
@@ -29,6 +29,8 @@
     "gh-pages": "6.1.0",
     "postcss": "8.4.32",
     "tailwindcss": "3.3.6",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "url-loader": "4.1.1",
+    "file-loader": "6.2.0"
   }
 }
